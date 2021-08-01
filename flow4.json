@@ -1,0 +1,116 @@
+[
+    {
+        "id": "dc9355d118a9d926",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "394ae4681ba34b43",
+        "type": "inject",
+        "z": "dc9355d118a9d926",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 420,
+        "wires": [
+            [
+                "234bac9457437381"
+            ]
+        ]
+    },
+    {
+        "id": "a67f6c9c5cbb1b8a",
+        "type": "debug",
+        "z": "dc9355d118a9d926",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "234bac9457437381",
+        "type": "function",
+        "z": "dc9355d118a9d926",
+        "name": "EnvioDatosJson",
+        "func": "msg.payload = \"{\\\"ID\\\":\\\"Antonio Lara\\\",\\\"Temp\\\":\\\"25\\\",\\\"mnsg\\\":\\\"Envio de datos por NODE-RED\\\"}\";\n// Regresa el mensaje para que se envíe al sigueinte nodo\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 480,
+        "wires": [
+            [
+                "9f393c9a7fc1a1c9",
+                "a67f6c9c5cbb1b8a"
+            ]
+        ]
+    },
+    {
+        "id": "9f393c9a7fc1a1c9",
+        "type": "mqtt out",
+        "z": "dc9355d118a9d926",
+        "name": "Datosaflow3",
+        "topic": "codigoIoT/SIC/flow3/temp",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "edd3004a.11da88",
+        "x": 730,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "edd3004a.11da88",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "3.66.119.222",
+        "port": "1883",
+        "clientid": "Danto-2217",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
